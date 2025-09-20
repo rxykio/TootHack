@@ -4,14 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TootHack - Need Help</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
   <style>
     * {margin:0; padding:0; box-sizing:border-box;}
 
     body, html {
       height: 100%;
-      font-family: Arial, sans-serif;
       overflow: hidden; 
     }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-y: scroll;
+      font-weight: 300; /* lighter body text */
+      color: #333;
+    }
+
+    /* Brand + Headings */
+    h1, h2, h3, .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600; /* bold headings */
+      letter-spacing: 0.5px;
+    }
+
+    /* Paragraphs */
+    p {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .buttons a, .btn {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Footer Quote */
+    .footer-quote p {
+      font-family: 'Roboto', sans-serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
 
     /* Header */
    header {
@@ -71,10 +110,32 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background .3s;
       margin: 0 5px;
+
+      /* smooth animation base */
+      transition: all 0.3s ease-in-out;
     }
-    .tab-menu button.active {background: #4faeff;}
+
+    /* Active tab */
+    .tab-menu button.active {
+      background: #2c92ff; /* brighter blue */
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(44, 146, 255, 0.6);
+      transform: translateY(-4px); /* stays lifted */
+    }
+
+    /* Hover animation */
+    .tab-menu button:hover {
+      background: #4faeff;
+      transform: translateY(-4px); /* lifts the button up */
+      box-shadow: 0 6px 15px rgba(79, 174, 255, 0.4); /* glowing shadow */
+    }
+
+    /* Press/click animation */
+    .tab-menu button:active {
+      transform: scale(0.95);
+    }
+
 
     /* Content Box */
     .content-box {

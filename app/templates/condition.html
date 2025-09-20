@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TootHack - Dental Disease Info</title>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family:'Roboto', sans-serif;
       background: white;
+      color: #222;
     }
 
      header {
@@ -23,8 +25,10 @@
   }
 
   header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
     margin: 0;
-    font-size: 22px;
+    font-weight: 600;
     line-height: 26px;
   }
 
@@ -34,8 +38,9 @@
     .page-title {
       text-align: center;
       margin: 20px 0;
-      font-size: 30px;
+      font-size: 34px;
       font-weight: bold;
+      font-family: 'Poppins', sans-serif;
     }
 
     /* Disease Section */
@@ -48,11 +53,21 @@
       flex-wrap: wrap;
     }
 
-    .disease-section img {
+    .img-fade {
       width: 300px;
       border-radius: 15px;
       object-fit: cover;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
+
+    .img-fade.loaded {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    
 
     .info-box {
       background: #4faeff;
@@ -60,11 +75,25 @@
       padding: 20px;
       border-radius: 15px;
       max-width: 400px;
+      font-family: 'Roboto', sans-serif;
     }
 
     .info-box h3 {
       margin-top: 0;
       margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .info-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .info-fade.loaded {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -83,8 +112,8 @@
 
   <!-- Disease Sections -->
   <div class="disease-section">
-    <img src="/app/static/images/cavity.jpg" alt="Cavity">
-    <div class="info-box">
+    <img src="static/images/cavity.jpg" alt="Cavity" class="img-fade">
+    <div class="info-box info-fade">
       <h3>Cavity</h3>
       <p>A dental cavity, also known as tooth decay or caries, is a hole that forms in the tooth when the enamel is damaged by acids.</p>
       <p>Over time, cavities can grow deeper, causing pain, sensitivity, and possible infection.</p>
@@ -92,8 +121,8 @@
   </div>
 
   <div class="disease-section">
-    <img src="/app/static/images/gum-disease.jpg" alt="Gum Disease">
-    <div class="info-box">
+    <img src="static/images/gum-disease.png" alt="Gum Disease" class="img-fade">
+    <div class="info-box info-fade">
       <h3>Gum Disease</h3>
       <p>Gum disease (periodontal disease) affects the tissues that hold your teeth in place, often caused by poor brushing and plaque buildup.</p>
       <p>It can lead to swollen gums, bleeding, and even tooth loss if untreated.</p>
@@ -101,8 +130,8 @@
   </div>
 
   <div class="disease-section">
-    <img src="/app/static/images/tooth-sensitivity.jpg" alt="Tooth Sensitivity">
-    <div class="info-box">
+    <img src="static/images/tooth-sensitivity.jpg" alt="Tooth Sensitivity" class="img-fade">
+    <div class="info-box info-fade">
       <h3>Tooth Sensitivity</h3>
       <p>Tooth sensitivity occurs when the enamel wears down, exposing dentin. This causes pain when consuming hot, cold, sweet, or acidic foods.</p>
       <p>It can be managed with proper dental care and desensitizing toothpaste.</p>
@@ -110,13 +139,39 @@
   </div>
 
   <div class="disease-section">
-    <img src="/app/static/images/oral-cancer.jpg" alt="Oral Cancer">
-    <div class="info-box">
+    <img src="static/images/oral-cancer.jpg" alt="Oral Cancer" class="img-fade">
+    <div class="info-box info-fade">
       <h3>Oral Cancer</h3>
       <p>Oral cancer appears as a growth or sore in the mouth that does not go away. It can be life-threatening if not diagnosed early.</p>
       <p>Regular dental checkups can help detect oral cancer in its early stages.</p>
     </div>
   </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const fadeItems = document.querySelectorAll(".img-fade, .info-fade");
+
+    fadeItems.forEach((el, index) => {
+      if (el.tagName === "IMG") {
+        el.addEventListener("load", () => {
+          setTimeout(() => {
+            el.classList.add("loaded");
+          }, index * 300);
+        });
+        if (el.complete) {
+          setTimeout(() => {
+            el.classList.add("loaded");
+          }, index * 300);
+        }
+      } else {
+        setTimeout(() => {
+          el.classList.add("loaded");
+        }, index * 300);
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
