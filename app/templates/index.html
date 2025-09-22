@@ -4,30 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TootHack</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       text-align: center;
       overflow-y: scroll;
     }
-<<<<<<< HEAD
-  h1, h2, h3, .navbar-brand {
-    font-family: 'Poppins', sans-serif; 
-  }
-  header {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px 15px 70px; /* space for burger */
-    background-color: #fff;
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-=======
     header {
       display: flex;
       justify-content: space-between;
@@ -53,7 +37,6 @@
       color: #4faeff;
       text-decoration: underline;
     }
->>>>>>> 39df53af467f98341285d2469ad6bef9f5ef17c9
 
     nav a.active {
       color: #4faeff;
@@ -88,20 +71,8 @@
       border-radius: 30px;
     }
     .buttons a:hover {
-      background-color: #007bff;
+      background-color: #0056b3;
     }
-
-    .btn-animate {
-    transition: all 0.3s ease-in-out;
-    transform: scale(1);
-  }
-  .btn-animate:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-  }
-  .btn-animate:active {
-    transform: scale(0.95);
-  }
     .cavity-section {
       padding: 40px;
       background-color: #cce7f3;
@@ -166,15 +137,6 @@
     #faqs a:hover {
       color: #007bff;
     }
-    .img-fade {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .img-fade.loaded {
-    opacity: 1;
-    transform: scale(1);
-  }
   </style>
 </head>
 <body>
@@ -186,23 +148,15 @@
 </header>
 
   <section class="home" id="home">
-    <img src="{{ url_for('static', filename='images/bg.jpg') }}" 
-     alt="Dental X-Ray" class="img-fluid w-100 img-fade">
+    <img src="{{ url_for('static', filename='images/bg.jpg') }}" alt="Dental X-Ray">
   </section>
 
   <section class="content">
     <h2>Welcome to TootHack</h2>
     <p>Your trusted partner in smarter dental care. Upload your dental x-ray, get instant AI-powered analysis, and take the first step toward a healthier smile.</p>
     <div class="buttons">
-      <a href="{{ url_for('main.upload') }}" 
-        class="btn btn-primary rounded-pill btn-animate">
-        Upload X-Ray Image
-      </a>
-
-      <a href="#learn" 
-        class="btn btn-outline-primary rounded-pill btn-animate">
-        Learn More
-      </a>
+      <a href="{{ url_for('main.upload') }}">Upload X-Ray Image</a>
+      <a href="#learn">Learn More</a>
     </div>
   </section>
 
@@ -219,8 +173,7 @@
         </p>
       </div>
       <div class="cavity-img">
-        <img src="{{ url_for('static', filename='images/cavity.jpg') }}" 
-     alt="Cavity Image" class="img-fluid rounded shadow img-fade">
+        <img src="{{ url_for('static', filename='images/cavity.jpg') }}" alt="Cavity Image">
       </div>
     </div>
     <div class="footer-quote">
@@ -240,19 +193,5 @@
     </ul>
   </section>
 
-<<<<<<< HEAD
-  <script>
-  // Add "loaded" class when image finishes loading
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".img-fade").forEach(img => {
-      img.addEventListener("load", () => {
-        img.classList.add("loaded");
-      });
-    });
-  });
-</script>
-
-=======
->>>>>>> 39df53af467f98341285d2469ad6bef9f5ef17c9
 </body>
 </html>
