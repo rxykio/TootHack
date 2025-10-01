@@ -4,36 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental X-ray Analysis</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Roboto', sans-serif;
         }
         
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            color: #222;
+            color: black;
             background: #fff;
             margin-left:4%;
+            font-family: 'Roboto', sans-serif;
         }
+
+         h1, h2, h3, h4 {
+          font-family: 'Poppins', sans-serif;
+          color: #007bff; 
+      }
+
+        p, li {
+          font-family: 'Roboto', sans-serif;
+          color: #007bff; 
+      }
         
         section {
-            margin-bottom: 30px;
+            margin: 40px 0;
         }
         
         h2 {
-            color: #2c3e50;
+            color: black;
             margin-bottom: 10px;
-            font-size: 28px;
+            font-size: 35px;
+        }
+
+        h3{
+            font-size: 30px;
         }
         
         p {
-            color: #7f8c8d;
-            margin-bottom: 20px;
+            color: black;
+            margin-bottom: 15px;
+            font-size: 20px;
         }
         
         input[type="file"] {
@@ -59,18 +77,21 @@
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
-            color: #7f8c8d;
+            color: black;
             transition: all 0.3s;
         }
         
         .tabs button.active {
-            color: #2980b9;
-            border-bottom: 3px solid #2980b9;
+            color: black;
+            border-bottom: 3px solid #007bff;
         }
         
         .tabs button:hover {
-            color: #2980b9;
+            background-color: #007bff; 
+            color: white; 
+            border-radius: 5px; 
         }
+
         
         /* Main Content */
         main {
@@ -91,37 +112,44 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             position: relative;
+            border-left: 5px solid #3498db; 
+            transition: all 0.3s ease;
         }
-        
+
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2); 
+            transform: translateY(-3px);
+        }
+
         .card h3 {
-            color: #2c3e50;
+            color: #007bff; 
             margin-bottom: 15px;
             font-size: 20px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #3498db; 
             padding-bottom: 10px;
         }
-        
+
         .card p {
             color: #34495e;
             margin-bottom: 15px;
         }
-        
+
         .card ul {
             padding-left: 20px;
             margin-bottom: 15px;
         }
-        
+
         .card li {
             margin-bottom: 10px;
-            color: #34495e;
+            color: #000; 
         }
-        
+
         /* Badges */
         .badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #e74c3c;
+            background-color: #3498db; 
             color: white;
             border-radius: 50%;
             width: 30px;
@@ -131,21 +159,23 @@
             justify-content: center;
             font-weight: bold;
         }
-        
+
         /* Buttons */
         button {
             padding: 10px 15px;
-            background-color: #3498db;
+            background-color: #3498db; 
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        
+
         button:hover {
-            background-color: #2980b9;
+            background-color: #2980b9; 
+            transform: scale(1.05); 
         }
+
         
         #retakeBtn {
             background-color: #7f8c8d;
@@ -172,100 +202,114 @@
             overflow-x: auto;
             margin-top: 15px;
             font-size: 14px;
+            border-left: 4px solid #3498db;
+            color: #2c3e50;
             display: none;
         }
-        
+
         /* Footer Button */
         .footer-btn {
             margin-top: 30px;
             text-align: center;
         }
-        
+
         .footer-btn button {
             padding: 12px 24px;
             font-size: 16px;
-            background-color: #2c3e50;
+            background-color: #3498db; 
+            border-radius: 8px;
+            border: none;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        
+
         .footer-btn button:hover {
-            background-color: #34495e;
+            background-color: #2980b9; 
+            transform: scale(1.05);
         }
-        
+
         /* Detection cards */
         .detection-card {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+            padding: 18px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db; 
             position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        
+
+        .detection-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
         .detection-card h4 {
-            color: #2c3e50;
-            margin-bottom: 8px;
+            color: #007bff;
+            margin-bottom: 10px;
         }
-        
+
         .detection-card p {
             margin-bottom: 8px;
-            color: #34495e;
+            color: #000; 
         }
-        
+
         .confidence {
             display: inline-block;
-            padding: 3px 8px;
-            background-color: #ecf0f1;
+            padding: 4px 10px;
+            background-color: #ecf6ff; 
             border-radius: 12px;
             font-size: 12px;
-            color: #7f8c8d;
+            color: #007bff;
+            font-weight: 500;
         }
-        
+
         /* Canvas Container */
         #resultContainer {
             position: relative;
             display: inline-block;
         }
-        
+
         #resultContainer canvas {
             max-width: 100%;
             height: auto;
-            border: 1px solid #ddd;
+            border: 2px solid #3498db; 
             border-radius: 8px;
+            position: relative;
         }
-        
+
         /* Filter buttons */
         .filter-btn, .class-filter-btn {
             transition: all 0.3s ease;
+            border-radius: 5px;
+            padding: 8px 14px;
+            background-color: white;
+            color: #000;
         }
-        
+
         .filter-btn.active, .class-filter-btn.active {
-            background-color: #2c3e50 !important;
+            background-color: #007bff !important;
             color: white;
         }
-        
-        .detection-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .detection-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-            transform: translateY(-2px);
-        }
-        
+
+        /* Focus button */
         .focus-btn {
             background-color: #3498db;
             color: white;
             border: none;
             border-radius: 4px;
-            padding: 5px 10px;
+            padding: 6px 12px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        
+
         .focus-btn:hover {
             background-color: #2980b9;
+            transform: scale(1.05);
         }
+
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -316,6 +360,10 @@
             margin: 0;
             font-size: 22px;
         }
+
+
+
+
     </style>
 </head>
 <body>
@@ -354,14 +402,21 @@
         </div>
 
         <!-- Right Image -->
-        <div class="card">
-            <h3>Visual Feedback</h3>
-            <div id="resultContainer">
-                <img id="resultImg" style="max-width:100%; border:1px solid #ccc; display: none;">
-                <!-- Canvas will be inserted here dynamically -->
+       <div class="card">
+        <h3>Visual Feedback</h3>
+        <div id="resultContainer">
+            <!-- Loader overlay -->
+            <div id="loadingSpinner" class="loading-overlay" style="display: none;">
+                <div class="loader"></div>
+                <p>Processing image...</p>
             </div>
-            <pre id="jsonOutput"></pre>
+
+            <img id="resultImg" style="max-width:100%; border:1px solid #ccc; display:none;">
+            <!-- Canvas will be inserted here dynamically -->
         </div>
+        <pre id="jsonOutput"></pre>
+</div>
+
     </main>
 
     <!-- Main Content: Recommendation -->
@@ -441,7 +496,7 @@
             });
         }
 
-        function drawDetection(detection) {
+        function drawDetection(detection, onComplete) {
     const { bbox, class: className, confidence, color, mask } = detection;
     
     // Scale factors
@@ -503,6 +558,8 @@
                 x1, y1, x2 - x1, y2 - y1
             );
             ctx.globalAlpha = 1.0;
+
+            // Draw bounding box + label
             ctx.strokeStyle = bboxColor;
             ctx.lineWidth = 2;
             ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
@@ -511,6 +568,7 @@
             ctx.fillStyle = 'white';
             ctx.font = '14px Arial';
             ctx.fillText(`${className}: ${(confidence * 100).toFixed(1)}%`, x1 + 5, y1 - 5);
+
         };
         maskImg.src = "data:image/png;base64," + mask;
     } else {
@@ -525,8 +583,12 @@
         ctx.fillStyle = 'white';
         ctx.font = '14px Arial';
         ctx.fillText(`${className}: ${(confidence * 100).toFixed(1)}%`, x1 + 5, y1 - 5);
+
+       
     }
 }
+
+
 
 function prepareDetectionOverlays(detectionData) {
     return detectionData.map((detection) => {
@@ -804,6 +866,7 @@ function prepareDetectionOverlays(detectionData) {
             
             container.appendChild(ul);
         }
+
     </script>
 </body>
 </html>
